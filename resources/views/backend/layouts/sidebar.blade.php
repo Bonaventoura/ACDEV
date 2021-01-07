@@ -78,13 +78,13 @@
                     </a>
                     <ul class="ml-menu">
                         <li>
-                            <a href="#" class="menu-toggle">
+                            <a href="{{ route('categories.index') }}" class="menu-toggle">
                                 <span>Catégories de blog</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="menu-toggle">
-                                <span>Post</span>
+                            <a href="{{ route('posts.index') }}" class="menu-toggle">
+                                <span>Posts</span>
                             </a>
                         </li>
                     </ul>

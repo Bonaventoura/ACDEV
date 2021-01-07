@@ -119,7 +119,15 @@ class ProjetsController extends Controller
      */
     public function edit(Projet $projet)
     {
-        //
+        $types = Type::all();
+        $etats = Etat::all();
+        $partenaires = Partenaire::all();
+        return view('backend.projets.edit')->with([
+            'projet'=>$projet,
+            'types'=>$types,
+            'etats'=>$etats,
+            'partenaires'=>$partenaires
+        ]);
     }
 
     /**
@@ -131,7 +139,31 @@ class ProjetsController extends Controller
      */
     public function update(Request $request, Projet $projet)
     {
-        //
+        if ($request->hasFile('image_projet')) {
+            $filename = $request->image_projet->getClientOriginalName();
+            $img = Image::make(request()->file('image_projet'))->fit(190,105)->save(public_path('/storage/projets/'.$filename),80,'jpg');
+            $projet->image = $filename;
+        }
+
+        $projet->titre = $request->titre;
+        $projet->type_id = $request->type_id;
+        $projet->etat_id = $request->etat_id;
+        $projet->localite = $request->localite;
+        $projet->objectifs = $request->objectifs;
+        $projet->resultats = $request->resultats;
+        $projet->date_start = $request->date_start;
+        $projet->date_end = $request->date_end;
+        $projet->description = $request->description;
+        $projet->cout_projet = $request->cout_projet;
+
+        $projet->beneficiaires = $request->beneficiaires;
+
+        $projet->save();
+
+        $projet->partenaires()->sync($request->partenaire_id);
+
+        session()->flash('success',"Le projet a été modifié avec succès");
+        return redirect()->route('projets.index');
     }
 
     /**
@@ -142,6 +174,8 @@ class ProjetsController extends Controller
      */
     public function destroy(Projet $projet)
     {
-        //
+        Projet::find($projet)->delete();
+        session()->flash('success',"Le projet a été modifié avec succès");
+        return redirect()->route('projets.index');
     }
 }

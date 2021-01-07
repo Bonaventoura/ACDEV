@@ -41,6 +41,10 @@ Route::namespace('Backend')->prefix('acdev-admin')->group(function(){
 
     Route::resource('partenaires', 'PartenaireController');
 
+    Route::resource('categories', 'CategoriesController');
+
+    Route::resource('posts', 'PostController');
+
 });
 
 

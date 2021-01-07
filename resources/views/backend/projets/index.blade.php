@@ -16,42 +16,42 @@
 
                         <table class="table table-bordered table-striped table-hover dataTable js-exportable" id="DataTables_Table_1" role="grid" aria-describedby="DataTables_Table_1_info">
                             <thead>
-                                <tr class="row">
-                                    <th class="sorting">Image</th>
-                                    <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 140px;">Nom</th>
-                                    <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 140px;"> Titre</th>
+                                <tr>
+                                    <th>Image</th>
+                                    <th>Titre</th>
+                                    <th>Localité</th>
                                     <th>Etat</th>
                                     <th>Type</th>
-                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 80px;">Action</th>
-                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 80px;">Action</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
 
                             <tbody>
 
                                 @foreach ($projets as $projet)
-                                    <tr role="row" class="odd">
+                                    <tr>
                                         <td>
                                             <img src="/storage/projets/{{$projet->image}}" width="90" height="70" alt="">
                                         </td>
-                                        <td class="sorting_1"> {{$projet->titre}} </td>
-                                        <td> {{$projet->localite}} </td>
-                                        <td>
-                                            {{$projet->etat->libelle}}
-                                        </td>
-                                        <td>
-                                            {{$projet->type->nom}}
-                                        </td>
-                                        <td>
-                                            <button projet="button" data-color="blue" class="btn btn-xs btn-primary  m-r-20" data-toggle="modal" data-target="#mdModal_{{$projet->id}}"><i class="material-icons">edit</i></button>
 
-                                        </td>
+                                        <td class=""> {{$projet->titre}} </td>
+                                        <td> {{$projet->localite}} </td>
+                                        <td>{{$projet->etat->libelle}}</td>
+                                        <td>{{$projet->type->nom}}</td>
                                         <td>
-                                            <form action="{{ route('projets.destroy',$projet) }}" method="post">
-                                                @csrf
-                                                @method('delete')
-                                                <button projet="submit" class="btn btn-xs btn-danger  m-r-20" onclick="confirm("En supprimant cette catégorie, vous supprimez toute les produits de cette catégories.Continuez!")"> <i class="material-icons">delete</i></button>
-                                            </form>
+                                            <div class="row">
+                                                <div class="col-lg-4">
+                                                    <a href="{{ route('projets.edit', $projet) }}" class="btn btn-xs btn-primary  m-r-20"><i class="material-icons">edit</i></a>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <form action="{{ route('projets.destroy',$projet) }}" method="post">
+                                                        @csrf
+                                                        @method('delete')
+                                                        <button projet="submit" class="btn btn-xs btn-danger"> <i class="material-icons">delete</i></button>
+                                                    </form>
+                                                </div>
+
+                                            </div>
                                         </td>
                                     </tr>
                                 @endforeach

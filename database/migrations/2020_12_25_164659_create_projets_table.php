@@ -17,7 +17,6 @@ class CreateProjetsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('type_id');
             $table->integer('etat_id');
-            $table->integer('partenaire_id')->nullable();
             $table->string('titre')->unique();
             $table->string('localite')->nullable();
             $table->string('beneficiaires');
