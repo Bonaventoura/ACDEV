@@ -45,9 +45,9 @@
                                         </td>
                                         <td>
                                             @if ($post->publier == 0)
-                                                <a href="" class="btn btn-xs btn-warning">Non Publier</a>
+                                                <a  class="btn btn-xs btn-warning">Non Publier</a>
                                             @else
-                                                <a href="" class="btn btn-xs btn-warning">Publier</a>
+                                                <a  class="btn btn-xs btn-warning">Publier</a>
                                             @endif
                                         </td>
 
@@ -55,9 +55,17 @@
                                             <div class="row">
                                                 <div class="col-lg-4">
                                                     @if ($post->publier == 0)
-                                                        <a class="btn btn-xs btn-success"><i class="material-icons">visibility</i></a>
+                                                        <form action="{{ route('post.publier', $post) }}" method="post">
+                                                            @csrf
+                                                            
+                                                            <button type="submit" class="btn btn-xs btn-success"><i class="material-icons">visibility</i></button>
+                                                        </form>
                                                     @else
-                                                        <a class="btn btn-xs btn-warning"><i class="material-icons">visibility_off</i></a>
+                                                        <form action="{{ route('post.hide', $post) }}" method="post">
+                                                            @csrf
+                                                            
+                                                            <button type="submit" class="btn btn-xs btn-warning"><i class="material-icons">visibility_off</i></button>
+                                                        </form>
                                                     @endif 
                                                 </div>
 

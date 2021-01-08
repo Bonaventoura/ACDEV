@@ -13,8 +13,9 @@
                 <div class="alert alert-warning" id="msg_alert" style="display: none"></div>
                 <div class="row">
                     @if ($categories->count() >0)
-                    <form id="form_post" data-route="{{ route('posts.update',$post) }}" method="POST" enctype="multipart/form-data">
+                    <form id="form_post" action="{{ route('posts.update',$post) }}" method="POST" enctype="multipart/form-data">
                         {{ csrf_field() }}
+                        @method('PUT')
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 
                             <div class="form-group">

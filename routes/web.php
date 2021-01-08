@@ -27,6 +27,10 @@ Route::namespace('Frontend')->prefix('acdev')->group(function(){
     Route::get('/presentation','FrontendController@presentation')->name('presentation');
 
     Route::get('/contact','FrontendController@contact')->name('contact');
+
+    Route::get('/actualités','FrontendController@blog')->name('blog');
+
+    Route::get('/actualités/détail/{slug}','FrontendController@single_post')->name('blog.single');
 });
 
 Route::namespace('Backend')->prefix('acdev-admin')->group(function(){
@@ -44,6 +48,10 @@ Route::namespace('Backend')->prefix('acdev-admin')->group(function(){
     Route::resource('categories', 'CategoriesController');
 
     Route::resource('posts', 'PostController');
+
+    Route::post('/post/publier/{$post}','AdminController@publierPost')->name('post.publier');
+
+    Route::post('/post/private/{$post}','Backend\AdminController@hidePost')->name('post.hide');
 
 });
 

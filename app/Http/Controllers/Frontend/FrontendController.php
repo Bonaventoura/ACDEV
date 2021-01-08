@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Frontend;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Partenaire;
+use App\Models\Post;
 use App\Models\Projet;
 
 class FrontendController extends Controller
@@ -56,6 +58,30 @@ class FrontendController extends Controller
     public function contact()
     {
         return view('frontend.contact');
+    }
+
+    public function blog()
+    {
+        $posts = Post::orderBy('id','desc')->paginate(6);
+        return view('frontend.blog.index')->with([
+            'posts'=>$posts
+        ]);
+    }
+
+    public function single_post($slug)
+    {
+        $post = Post::where('slug',$slug)->first();
+        $categories = Category::all();
+        if ($post) {
+            return view('frontend.blog.show')->with([
+                'post'=>$post,
+                'categories'=>$categories
+            ]);
+        } else {
+            session()->flash('alert',"Le post que vous essayez d'accéder n'existe pas ou n'est pas encore publié");
+            return redirect()->back();
+        }
+        
     }
 
 

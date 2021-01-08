@@ -66,7 +66,7 @@
                 <li id="home" class="nav-item active"><a href="{{ route('welcome') }}" class="nav-link">Accueil</a></li>
                 <li id="present" class="nav-item"><a href="{{ route('presentation') }}" class="nav-link">Qui sommes nous ?</a></li>
                 <li id="projet" class="nav-item"><a href="{{ route('acdev.projets') }}" class="nav-link">Projets</a></li>
-                <li id="blog" class="nav-item"><a href="blog.html" class="nav-link">Actualités</a></li>
+                <li id="blog" class="nav-item"><a href="{{ route('blog') }}" class="nav-link">Actualités</a></li>
                 <li id="temoignage" class="nav-item"><a href="blog.html" class="nav-link">Témoignages</a></li>
                 <li id="partenaire" class="nav-item"><a href="{{ route('acdev.partenaires') }}" class="nav-link">Partenaires</a></li>
                 <li id="contact" class="nav-item"><a href="{{ route('contact') }}" class="nav-link">Contact</a></li>
