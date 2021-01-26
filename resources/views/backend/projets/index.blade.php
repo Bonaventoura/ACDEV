@@ -41,6 +41,9 @@
                                         <td>
                                             <div class="row">
                                                 <div class="col-lg-4">
+                                                    <a href="{{ route('projets.show', $projet) }}" class="btn btn-xs btn-success  m-r-20"><i class="material-icons">visibility</i></a>
+                                                </div>
+                                                <div class="col-lg-4">
                                                     <a href="{{ route('projets.edit', $projet) }}" class="btn btn-xs btn-primary  m-r-20"><i class="material-icons">edit</i></a>
                                                 </div>
                                                 <div class="col-lg-4">

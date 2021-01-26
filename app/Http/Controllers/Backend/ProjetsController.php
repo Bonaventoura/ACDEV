@@ -6,6 +6,7 @@ use App\Models\Projet;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Etat;
+use App\Models\Gallery;
 use App\Models\Partenaire;
 use App\Models\Type;
 use Illuminate\Support\Facades\Validator;
@@ -108,7 +109,12 @@ class ProjetsController extends Controller
      */
     public function show(Projet $projet)
     {
-        //
+        $galleries = Gallery::where('projet_id','=',$projet->id)->get();
+        //dd($galleries);
+        return view('backend.projets.show')->with([
+            'projet'=>$projet,
+            'galleries'=>$galleries
+        ]);
     }
 
     /**

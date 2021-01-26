@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Models\Post;
+use App\Models\Gallery;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Post;
+use Intervention\Image\Facades\Image;
 
 class AdminController extends Controller
 {
@@ -13,15 +15,16 @@ class AdminController extends Controller
         return view('backend.index');
     }
 
-    public function publierPost(Post $post)
+    public function publierPost($post)
     {
-        $this->updatePost($post,1);
+        $update = $this->updatePost($post,1);
+        //dd($update);
 
         session()->flash('success',"Le statut du post a été modifié correctement, post publier");
         return redirect()->back();
     }
 
-    public function hidePost(Post $post)
+    public function hidePost($post)
     {
         $this->updatePost($post,0);
 
@@ -29,10 +32,40 @@ class AdminController extends Controller
         return redirect()->back();
     }
 
-    public function updatePost(Post $post,$v)
+    public function updatePost($post,$v)
     {
-        return Post::where('id','=',$post)->update([
+        $up =  Post::where('id','=',$post)->update([
             'publier'=>$v
         ]);
+        return $up;
+    }
+
+    public function addGallery(Request $request)
+    {
+        $validate =  $this->validate($request,[
+            'projet_id'=>'required',
+            'image_gallery'=>'required'
+        ]);
+
+        $response = [];
+
+        if ($validate) {
+
+            $filename = $request->image_gallery->getClientOriginalName();
+            $img = Image::make(request()->file('image_gallery'))->fit(190,105)->save(public_path('/storage/gallery/'.$filename),80,'jpg');
+
+            Gallery::create([
+                'projet_id'=>$request->projet_id,
+                'legende'=>$request->legende,
+                'image'=>$filename
+            ]);
+
+            $response = [
+                'success'=>"L'image a été ajoutée à la gallerie du projet avec succès",
+                'src'=> "/storage/gallery/".$filename
+            ];
+
+            return response()->json($response,200);
+        }
     }
 }

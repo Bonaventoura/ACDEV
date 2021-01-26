@@ -22,7 +22,7 @@ Route::namespace('Frontend')->prefix('acdev')->group(function(){
 
     Route::get('/partenaires','FrontendController@partenaires')->name('acdev.partenaires');
 
-    Route::get('/partenaires/show/{nom}','FrontendController@detail_projet')->name('projet-detail');
+    //Route::get('/partenaires/show/{nom}','FrontendController@detail_projet')->name('projet-detail');
 
     Route::get('/presentation','FrontendController@presentation')->name('presentation');
 
@@ -31,6 +31,10 @@ Route::namespace('Frontend')->prefix('acdev')->group(function(){
     Route::get('/actualités','FrontendController@blog')->name('blog');
 
     Route::get('/actualités/détail/{slug}','FrontendController@single_post')->name('blog.single');
+
+    Route::get('/gallery','FrontendController@galery')->name('gallery');
+
+    Route::get('/témoignages','FrontendController@temoignages')->name('temoignage');
 });
 
 Route::namespace('Backend')->prefix('acdev-admin')->group(function(){
@@ -49,9 +53,15 @@ Route::namespace('Backend')->prefix('acdev-admin')->group(function(){
 
     Route::resource('posts', 'PostController');
 
-    Route::post('/post/publier/{$post}','AdminController@publierPost')->name('post.publier');
+    Route::resource('temoignages', 'TemoignagesController');
 
-    Route::post('/post/private/{$post}','Backend\AdminController@hidePost')->name('post.hide');
+    Route::post('/post/publier/{post}','AdminController@publierPost')->name('post.publier');
+
+    Route::post('/post/private/{post}','Backend\AdminController@hidePost')->name('post.hide');
+
+    Route::post('/projet/gallery','AdminController@addGallery')->name('gallery.store');
+
+
 
 });
 

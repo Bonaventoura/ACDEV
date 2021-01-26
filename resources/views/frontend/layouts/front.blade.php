@@ -20,7 +20,8 @@
 	<link rel="stylesheet" href="{{ asset('css/jquery.timepicker.css') }}">
 
 	<link rel="stylesheet" href="{{ asset('css/flaticon.css') }}">
-	<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
 </head>
 <body>
 	@include('frontend.layouts.navbar')
@@ -31,7 +32,7 @@
         <div class="container">
             <div class="row no-gutters slider-text align-items-end justify-content-start">
                 <div class="col-md-9 ftco-animate pb-5 fadeInUp ftco-animated">
-                    <p class="breadcrumbs"><span class="mr-2"><a href="{{ route('welcome') }}">Accueil <i class="fa fa-chevron-right"></i></a></span> <span>Contact us <i class="fa fa-chevron-right"></i></span></p>
+                    <p class="breadcrumbs"><span class="mr-2"><a href="{{ route('welcome') }}">Accueil <i class="fa fa-chevron-right"></i></a></span> <span>@yield('page') <i class="fa fa-chevron-right"></i></span></p>
                     <h1 class="mb-3 bread">@yield('titre')</h1>
                 </div>
             </div>

@@ -7,7 +7,7 @@
         <div class="card shadow-lg">
             <div class="header ">
                 <h2 class="text-center">
-                    Liste de posts
+                    Liste de temoignages
                 </h2>
             </div>
             <div class="body">
@@ -19,25 +19,24 @@
                             <thead>
                                 <tr>
                                     <th>Image</th>
-                                    <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="title: activate to sort column descending" style="width: 80px;">Titre</th>
-                                    <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 40px;">Catégorie</th>
-                                    <th>Type</th>
-                                    <th>Etat</th>
+                                    <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="title: activate to sort column descending" style="width: 80px;">Légende</th>
+                                    <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 40px;">Type</th>
+                                    <th>Lien</th>
                                     <th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 120px;">Action</th>
                                 </tr>
                             </thead>
 
                             <tbody>
 
-                                @foreach ($posts as $post)
+                                @foreach ($temoignages as $post)
                                     <tr>
                                         <td>
-                                            <img src="/storage/posts/{{$post->image}} " width="90" height="70" alt="">
+                                            <img src="/storage/temoignages/{{$post->image}} " width="90" height="70" alt="">
                                         </td>
-                                        <td class="sorting_1"> {{$post->title}} </td>
-                                        <td> {{$post->category->name}} </td>
+                                        <td class="sorting_1"> {{$post->legende}} </td>
+                                        <td> {{$post->type->name}} </td>
                                         <td>
-                                            @if ($post->lien_video !== '')
+                                            @if ($post->lien !== '')
                                             <button type="button" class="btn btn-default waves-effect m-r-20" data-toggle="modal" data-target="#largeModal_{{$post->id}}">Voir</button>
                                             @else
                                                 Image
@@ -45,35 +44,13 @@
                                         </td>
 
                                         <td>
-                                            @if ($post->publier == 0)
-                                                <a  class="btn btn-xs btn-warning">Non Publier</a>
-                                            @else
-                                                <a  class="btn btn-xs btn-warning">Publier</a>
-                                            @endif
-                                        </td>
-
-                                        <td>
                                             <div class="row">
                                                 <div class="col-lg-4">
-                                                    @if ($post->publier == 0)
-                                                        <form action="{{ route('post.publier', ['post'=>$post]) }}" method="post">
-                                                            @csrf
-                                                            <button type="submit" class="btn btn-xs btn-success"><i class="material-icons">visibility</i></button>
-                                                        </form>
-                                                    @else
-                                                        <form action="{{ route('post.hide',['post'=>$post]) }}" method="post">
-                                                            @csrf
-                                                            <button type="submit" class="btn btn-xs btn-warning"><i class="material-icons">visibility_off</i></button>
-                                                        </form>
-                                                    @endif
+                                                    <a href="{{ route('temoignages.edit',$post) }}" class="btn btn-xs btn-primary"><i class="material-icons">edit</i></a>
                                                 </div>
 
                                                 <div class="col-lg-4">
-                                                    <a href="{{ route('posts.edit',$post) }}" class="btn btn-xs btn-primary"><i class="material-icons">edit</i></a>
-                                                </div>
-
-                                                <div class="col-lg-4">
-                                                    <form action="{{ route('posts.destroy',$post) }}" method="post">
+                                                    <form action="{{ route('temoignages.destroy',$post) }}" method="post">
                                                         @csrf
                                                         @method('delete')
                                                         <button type="submit" class="btn btn-xs btn-danger  m-r-20"> <i class="material-icons">delete</i></button>
@@ -88,7 +65,7 @@
 
                             </tbody>
                         </table>
-                        <a href="{{ route('posts.create') }}" class="btn btn-sm btn-primary">Nouveau post</a>
+                        <a href="{{ route('temoignages.create') }}" class="btn btn-sm btn-primary">Nouveau post</a>
                     </div>
                 </div>
             </div>
@@ -97,7 +74,7 @@
 </div>
 
 <!-- Large Size -->
-@foreach ($posts as $item)
+@foreach ($temoignages as $item)
 <div class="modal fade" id="largeModal_{{$post->id}}" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">

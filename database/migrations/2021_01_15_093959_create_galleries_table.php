@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTemoignagesTable extends Migration
+class CreateGalleriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateTemoignagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('temoignages', function (Blueprint $table) {
+        Schema::create('galleries', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('legende');
-            $table->string('lien');
+            $table->integer('projet_id');
+            $table->string('legende')->nullable();
             $table->text('image');
-            $table->integer('type_id')->nullable();
-
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ class CreateTemoignagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('temoignages');
+        Schema::dropIfExists('galleries');
     }
 }

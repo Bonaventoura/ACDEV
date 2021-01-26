@@ -33,11 +33,11 @@
         <!-- Menu -->
         <div class="menu">
             <ul class="list">
-                <li class="header">MAIN NAVIGATION</li>
+                <li class="header">BIENVENUE ESPACE ADMIN</li>
                 <li class="active">
                     <a href="#">
                         <i class="material-icons">home</i>
-                        <span>Dashboard</span>
+                        <span>Tableau de bord</span>
                     </a>
                 </li>
 
@@ -92,9 +92,9 @@
 
                 <li class="header">Les états</li>
                 <li>
-                    <a href="#">
+                    <a href="{{ route('temoignages.index') }}">
                         <i class="material-icons col-red">donut_large</i>
-                        <span>Consulter les états</span>
+                        <span>Témoignages</span>
                     </a>
                 </li>
             </ul>
@@ -102,11 +102,9 @@
         <!-- #Menu -->
         <!-- Footer -->
         <div class="legal">
-            <div class="copyright">
-                &copy; 2020 - 2021 <a href="javascript:void(0);">GOA/a>.
-            </div>
+
             <div class="version">
-                <b>Version: </b> 1.0.0
+                <b>IrisNetCom: </b>
             </div>
         </div>
         <!-- #Footer -->

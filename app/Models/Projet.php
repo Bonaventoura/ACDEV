@@ -35,4 +35,9 @@ class Projet extends Model
     {
         return $this->belongsToMany(Partenaire::class)->withTimestamps();
     }
+
+    public function galleries()
+    {
+        return $this->hasMany(Gallery::class);
+    }
 }

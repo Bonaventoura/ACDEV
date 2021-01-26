@@ -23,17 +23,27 @@
                 <div class="media block-6 services d-flex">
                     <div class="icon justify-content-center align-items-center d-flex"><span class="flaticon-engineer-1"></span></div>
                     <div class="media-body pl-4">
-                        <h3 class="heading mb-3">Quality Construction</h3>
-                        <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                    </div>
+                        <h3 class="heading mb-3">Missions</h3>
+                        <p>
+
+                            L’association ACDev s’engage à contribuer au développement social, économique et culturel des communautés les plus démunies.</p>
+                        </div>
                 </div>
             </div>
             <div class="col-lg-4 d-flex align-self-stretch ftco-animate">
                 <div class="media block-6 services services-2 d-flex">
                     <div class="icon justify-content-center align-items-center d-flex"><span class="flaticon-worker-1"></span></div>
                     <div class="media-body pl-4">
-                        <h3 class="heading mb-3">Professional Liability</h3>
-                        <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                        <h3 class="heading mb-3">Domaines</h3>
+                        <p>
+
+                               <li>Eau et Assainissement</li>
+                               <li>Education et Formation</li>
+                               <li>Agriculture et Elevage</li>
+                               <li>Santé</li>
+
+
+                        </p>
                     </div>
                 </div>
             </div>
@@ -50,94 +60,34 @@
     </div>
 </section>
 
-<section class="ftco-section" id="about-section">
+<section class="ftco-section bg-light">
     <div class="container">
-        <div class="row">
-            <div class="col-md-6 d-flex align-items-stretch">
-                <div class="about-wrap img w-100" style="background-image: url(images/about.jpg);">
-                    <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-crane"></span></div>
-                </div>
-            </div>
-            <div class="col-md-6 py-5 pl-md-5">
-                <div class="row justify-content-center mb-4 pt-md-4">
-                    <div class="col-md-12 heading-section ftco-animate">
-                        <span class="subheading">Welcome to Wilcon</span>
-                        <h2 class="mb-4">Wilcon A Construction Company</h2>
-                        <div class="d-flex about">
-                            <div class="icon"><span class="flaticon-hammer"></span></div>
-                            <h3>We're in this business since 1975 and We provide the best insdustrial services</h3>
-                        </div>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-                        <div class="d-flex video-image align-items-center mt-md-4">
-                            <a href="#" class="video img d-flex align-items-center justify-content-center" style="background-image: url(images/about-2.jpg);">
-                                <span class="fa fa-play-circle"></span>
-                            </a>
-                            <h4 class="ml-4">This is how we work on our clients, Watch video</h4>
-                        </div>
-                    </div>
-                </div>
+        <div class="row justify-content-center mb-5 pb-3">
+            <div class="col-md-10 heading-section text-center ftco-animate">
+                <span class="subheading">Blog</span>
+                <h2 class="mb-4">Les dernières actualités</h2>
             </div>
         </div>
-    </div>
-</section>
+        <div class="row d-flex">
 
-<section class="ftco-intro">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-12 text-center">
-                <div class="img"  style="background-image: url(images/bg_2.jpg);">
-                    <div class="overlay"></div>
-                    <h2>Providing Personalized and High Quality Services</h2>
-                    <p>We can manage your dream building A small river named Duden flows by their place</p>
-                    <p class="mb-0"><a href="#" class="btn btn-primary px-4 py-3">Request A Quote</a></p>
+            @foreach ($posts as $post)
+            <div class="col-lg-4 ftco-animate">
+                <div class="blog-entry">
+                    <a href="{{ route('blog.single', ['slug'=>$post->slug]) }}" class="block-20" style="background-image: url('/storage/posts/{{$post->image}}');">
+                    </a>
+                    <div class="text d-block">
+                        <div class="meta">
+                            <p>
+                                <a href="#"><span class="fa fa-calendar mr-2"></span>{{$post->created_at->format(' d, m,  Y')}}</a>
+                            </p>
+                        </div>
+                        <h3 class="heading"><a href="#">{{$post->title}}</a></h3>
+                        <p><a href="{{ route('blog.single', ['slug'=>$post->slug]) }}" class="btn btn-secondary py-2 px-3">Plus de détail</a></p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
+            @endforeach
 
-<section class="ftco-section bg-half-light">
-    <div class="container">
-        <div class="row justify-content-center mb-5 pb-2">
-            <div class="col-md-8 text-center heading-section ftco-animate">
-                <span class="subheading">Our Services</span>
-                <h2 class="mb-4">We Offer Services</h2>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="services-wrap ftco-animate">
-                    <div class="img" style="background-image: url(images/services-1.jpg);"></div>
-                    <div class="text">
-                        <div class="icon"><span class="flaticon-architect"></span></div>
-                        <h2>Architecture</h2>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
-                        <a href="#" class="btn-custom">Read more</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="services-wrap ftco-animate">
-                    <div class="img" style="background-image: url(images/services-2.jpg);"></div>
-                    <div class="text">
-                        <div class="icon"><span class="flaticon-worker"></span></div>
-                        <h2>Renovation</h2>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
-                        <a href="#" class="btn-custom">Read more</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="services-wrap ftco-animate">
-                    <div class="img" style="background-image: url(images/services-3.jpg);"></div>
-                    <div class="text">
-                        <div class="icon"><span class="flaticon-hammer"></span></div>
-                        <h2>Construction</h2>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
-                        <a href="#" class="btn-custom">Read more</a>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </section>
@@ -148,32 +98,20 @@
         <div class="row no-gutters">
             <div class="col-md-6 py-5 bg-secondary aside-stretch">
                 <div class="heading-section heading-section-white p-4 pl-md-0 py-md-5 pr-md-5">
-                    <span class="subheading">Wilcon A Construction Company</span>
-                    <h2 class="mb-4">Best Provider for Industrial Services</h2>
-                    <h4>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</h4>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean</p>
-                </div>
+                    <!--<span class="subheading">ACDEV</span>-->
+                    <h3 class="mb-4 text-white">Association Charité  et Développement </h3>
+
+                    <p>
+
+                     ACDev reste fidèle à son engagement pris et à ses principes qui consistent à destiner les fonds mobilisés aux actions définies, à exécuter les actions dans le temps et dans l’espace bien déterminés au départ.
+                        L’exécution des projets est faite avec une transparence qui implique tous les partenaires de l’action.
+                        Le rapport des activités est régulièrement envoyé à toutes les parties prenantes pour leur tenir informer de la destination et les impacts de leurs contributions.
+
+                    </div>
             </div>
             <div class="col-md-6 d-flex align-items-center">
                 <div class="row">
-                    <div class="col-md-12 d-flex counter-wrap ftco-animate">
-                        <div class="block-18 bg-primary d-flex align-items-center justify-content-between">
-                            <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-engineer"></span></div>
-                            <div class="text">
-                                <strong class="number" data-number="48000">0</strong>
-                                <span>Project Completed</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12 d-flex counter-wrap ftco-animate">
-                        <div class="block-18 d-flex align-items-center justify-content-between">
-                            <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-worker-1"></span></div>
-                            <div class="text">
-                                <strong class="number" data-number="54900">0</strong>
-                                <span>Happy Customers</span>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -184,84 +122,25 @@
     <div class="container">
         <div class="row justify-content-center mb-5 pb-3">
             <div class="col-md-7 text-center heading-section ftco-animate">
-                <span class="subheading">Our Global Work Industries</span>
-                <h2 class="mb-4">Latest Projects</h2>
+                <span class="subheading">Les projets d'ACDEV</span>
+                <h2 class="mb-4">Derniers projets</h2>
             </div>
         </div>
         <div class="row">
+            @foreach ($projets as $projet)
             <div class="col-md-4">
                 <div class="project">
-                    <a href="images/project-1.jpg" class="img image-popup d-flex align-items-center" style="background-image: url(images/project-1.jpg);">
+                    <a href="/storage/projets/{{$projet->image}}" class="img image-popup d-flex align-items-center" style="background-image: url(/storage/projets/{{$projet->image}});">
                         <div class="icon d-flex align-items-center justify-content-center mb-5"><span class="fa fa-plus"></span></div>
                     </a>
                     <div class="text">
-                        <span class="subheading">Building</span>
-                        <h3>Building A Condominium</h3>
-                        <p><span class="fa fa-map-marker mr-1"></span> San Francisco, California, USA</p>
+                        <span class="subheading">{{$projet->type->nom}}</span>
+                        <h3>{{$projet->titre}}</h3>
+                        <p><span class="fa fa-map-marker mr-1"></span> {{$projet->localite}}</p>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="project">
-                    <a href="images/project-1.jpg" class="img image-popup d-flex align-items-center" style="background-image: url(images/project-1.jpg);">
-                        <div class="icon d-flex align-items-center justify-content-center mb-5"><span class="fa fa-plus"></span></div>
-                    </a>
-                    <div class="text">
-                        <span class="subheading">Building</span>
-                        <h3>Building A Condominium</h3>
-                        <p><span class="fa fa-map-marker mr-1"></span> San Francisco, California, USA</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="project">
-                    <a href="images/project-1.jpg" class="img image-popup d-flex align-items-center" style="background-image: url(images/project-1.jpg);">
-                        <div class="icon d-flex align-items-center justify-content-center mb-5"><span class="fa fa-plus"></span></div>
-                    </a>
-                    <div class="text">
-                        <span class="subheading">Building</span>
-                        <h3>Building A Condominium</h3>
-                        <p><span class="fa fa-map-marker mr-1"></span> San Francisco, California, USA</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="project">
-                    <a href="images/project-1.jpg" class="img image-popup d-flex align-items-center" style="background-image: url(images/project-1.jpg);">
-                        <div class="icon d-flex align-items-center justify-content-center mb-5"><span class="fa fa-plus"></span></div>
-                    </a>
-                    <div class="text">
-                        <span class="subheading">Building</span>
-                        <h3>Building A Condominium</h3>
-                        <p><span class="fa fa-map-marker mr-1"></span> San Francisco, California, USA</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="project">
-                    <a href="images/project-1.jpg" class="img image-popup d-flex align-items-center" style="background-image: url(images/project-1.jpg);">
-                        <div class="icon d-flex align-items-center justify-content-center mb-5"><span class="fa fa-plus"></span></div>
-                    </a>
-                    <div class="text">
-                        <span class="subheading">Building</span>
-                        <h3>Building A Condominium</h3>
-                        <p><span class="fa fa-map-marker mr-1"></span> San Francisco, California, USA</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="project">
-                    <a href="images/project-1.jpg" class="img image-popup d-flex align-items-center" style="background-image: url(images/project-1.jpg);">
-                        <div class="icon d-flex align-items-center justify-content-center mb-5"><span class="fa fa-plus"></span></div>
-                    </a>
-                    <div class="text">
-                        <span class="subheading">Building</span>
-                        <h3>Building A Condominium</h3>
-                        <p><span class="fa fa-map-marker mr-1"></span> San Francisco, California, USA</p>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>
@@ -269,83 +148,41 @@
 <section class="ftco-section ftco-no-pt ftco-no-pb testimony-section img">
     <div class="overlay"></div>
     <div class="container">
-        <div class="row ftco-animate justify-content-center">
+        <div class="row ftco-animate justify-content-center mb-5">
             <div class="col-md-6 p-4 pl-md-0 py-md-5 pr-md-5 aside-stretch d-flex align-items-center">
                 <div class="heading-section heading-section-white">
-                    <span class="subheading" style="color:#fff;">Read Testimonials</span>
-                    <h2 class="mb-4" style="font-size: 50px;">It's always a joy to hear that the work we do has positively reviews</h2>
+                    <span class="subheading" style="color:#fff;"></span>
+                    <h3 class="mb-4 text-white" >
+                        ACDEV ouvre ses bras à toute organisation, à toute bienfaiteur ou bienfaitrice, à toute fondation humanitaire et à toute personne de bonne volonté
+                    </h3>
                 </div>
             </div>
             <div class="col-md-6 pl-md-5 py-4 py-md-5 aside-stretch-right">
+
                 <div class="carousel-testimony owl-carousel ftco-owl">
                     <div class="item">
                         <div class="testimony-wrap py-4 pb-5 d-flex justify-content-between align-items-end">
-                            <div class="user-img" style="background-image: url(images/person_1.jpg)">
-                                <span class="quote d-flex align-items-center justify-content-center">
-                                    <i class="fa fa-quote-left"></i>
-                                </span>
-                            </div>
-                            <div class="text">
-                                <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean</p>
-                                <p class="name">Jeff Freshman</p>
-                                <span class="position">Guests</span>
-                            </div>
+                            <img src="{{ asset('images/person_2.jpg') }}" width="205" height="200" alt="">
                         </div>
                     </div>
                     <div class="item">
                         <div class="testimony-wrap py-4 pb-5 d-flex justify-content-between align-items-end">
-                            <div class="user-img" style="background-image: url(images/person_2.jpg)">
-                                <span class="quote d-flex align-items-center justify-content-center">
-                                    <i class="fa fa-quote-left"></i>
-                                </span>
-                            </div>
-                            <div class="text">
-                                <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean</p>
-                                <p class="name">Jeff Freshman</p>
-                                <span class="position">Guests</span>
-                            </div>
+                            <img src="{{ asset('images/person_2.jpg') }}" width="205" height="200" alt="">
                         </div>
                     </div>
                     <div class="item">
                         <div class="testimony-wrap py-4 pb-5 d-flex justify-content-between align-items-end">
-                            <div class="user-img" style="background-image: url(images/person_3.jpg)">
-                                <span class="quote d-flex align-items-center justify-content-center">
-                                    <i class="fa fa-quote-left"></i>
-                                </span>
-                            </div>
-                            <div class="text">
-                                <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean</p>
-                                <p class="name">Jeff Freshman</p>
-                                <span class="position">Guests</span>
-                            </div>
+                            <img src="{{ asset('images/person_3.jpg') }}" width="205" height="200" alt="">
                         </div>
                     </div>
                     <div class="item">
                         <div class="testimony-wrap py-4 pb-5 d-flex justify-content-between align-items-end">
-                            <div class="user-img" style="background-image: url(images/person_1.jpg)">
-                                <span class="quote d-flex align-items-center justify-content-center">
-                                    <i class="fa fa-quote-left"></i>
-                                </span>
-                            </div>
-                            <div class="text">
-                                <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean</p>
-                                <p class="name">Jeff Freshman</p>
-                                <span class="position">Guests</span>
-                            </div>
+                            <img src="{{ asset('images/person_4.jpg') }}" width="205" height="200" alt="">
                         </div>
                     </div>
                     <div class="item">
                         <div class="testimony-wrap py-4 pb-5 d-flex justify-content-between align-items-end">
-                            <div class="user-img" style="background-image: url(images/person_3.jpg)">
-                                <span class="quote d-flex align-items-center justify-content-center">
-                                    <i class="fa fa-quote-left"></i>
-                                </span>
-                            </div>
-                            <div class="text">
-                                <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean</p>
-                                <p class="name">Jeff Freshman</p>
-                                <span class="position">Guests</span>
-                            </div>
+                            <img src="{{ asset('images/person_2.jpg') }}" width="205" height="200" alt="">
                         </div>
                     </div>
                 </div>
@@ -354,68 +191,5 @@
     </div>
 </section>
 
-<section class="ftco-section bg-light">
-    <div class="container">
-        <div class="row justify-content-center mb-5 pb-3">
-            <div class="col-md-10 heading-section text-center ftco-animate">
-                <span class="subheading">Our Blog</span>
-                <h2 class="mb-4">Latest Blog Updates</h2>
-            </div>
-        </div>
-        <div class="row d-flex">
-            <div class="col-lg-4 ftco-animate">
-                <div class="blog-entry">
-                    <a href="blog-single.html" class="block-20" style="background-image: url('images/image_1.jpg');">
-                    </a>
-                    <div class="text d-block">
-                        <div class="meta">
-                            <p>
-                                <a href="#"><span class="fa fa-calendar mr-2"></span>Sept. 06, 2020</a>
-                                <a href="#"><span class="fa fa-user mr-2"></span>Admin</a>
-                                <a href="#" class="meta-chat"><span class="fa fa-comment mr-2"></span> 3</a>
-                            </p>
-                        </div>
-                        <h3 class="heading"><a href="#">Best for any industrial &amp; business solution</a></h3>
-                        <p><a href="blog.html" class="btn btn-secondary py-2 px-3">Read more</a></p>
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-lg-4 ftco-animate">
-                <div class="blog-entry">
-                    <a href="blog-single.html" class="block-20" style="background-image: url('images/image_2.jpg');">
-                    </a>
-                    <div class="text d-block">
-                        <div class="meta">
-                            <p>
-                                <a href="#"><span class="fa fa-calendar mr-2"></span>Sept. 06, 2020</a>
-                                <a href="#"><span class="fa fa-user mr-2"></span>Admin</a>
-                                <a href="#" class="meta-chat"><span class="fa fa-comment mr-2"></span> 3</a>
-                            </p>
-                        </div>
-                        <h3 class="heading"><a href="#">Best for any industrial &amp; business solution</a></h3>
-                        <p><a href="blog.html" class="btn btn-secondary py-2 px-3">Read more</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 ftco-animate">
-                <div class="blog-entry">
-                    <a href="blog-single.html" class="block-20" style="background-image: url('images/image_3.jpg');">
-                    </a>
-                    <div class="text d-block">
-                        <div class="meta">
-                            <p>
-                                <a href="#"><span class="fa fa-calendar mr-2"></span>Sept. 06, 2020</a>
-                                <a href="#"><span class="fa fa-user mr-2"></span>Admin</a>
-                                <a href="#" class="meta-chat"><span class="fa fa-comment mr-2"></span> 3</a>
-                            </p>
-                        </div>
-                        <h3 class="heading"><a href="#">Best for any industrial &amp; business solution</a></h3>
-                        <p><a href="blog.html" class="btn btn-secondary py-2 px-3">Read more</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 @endsection
