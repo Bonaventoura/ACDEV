@@ -55,11 +55,14 @@ class TemoignagesController extends Controller
             $img = Image::make(request()->file('image_post'))->fit(190,105)->save(public_path('/storage/temoignages/'.$filename),80,'jpg');
 
             $post = new Temoignage();
+            $slug = \str_slug($request->legende);
 
             $post->legende = $request->legende;
             $post->type_id = $request->type_id;
             $post->image = $filename;
             $post->lien = $request->lien_video;
+            $post->text = $request->text;
+            $post->slug = $slug;
 
             $post->save();
 

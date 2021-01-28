@@ -100,14 +100,12 @@
                 <div class="heading-section heading-section-white p-4 pl-md-0 py-md-5 pr-md-5">
                     <!--<span class="subheading">ACDEV</span>-->
                     <h3 class="mb-4 text-white">Association Charité  et Développement </h3>
-
                     <p>
-
-                     ACDev reste fidèle à son engagement pris et à ses principes qui consistent à destiner les fonds mobilisés aux actions définies, à exécuter les actions dans le temps et dans l’espace bien déterminés au départ.
+                        ACDev reste fidèle à son engagement pris et à ses principes qui consistent à destiner les fonds mobilisés aux actions définies, à exécuter les actions dans le temps et dans l’espace bien déterminés au départ.
                         L’exécution des projets est faite avec une transparence qui implique tous les partenaires de l’action.
-                        Le rapport des activités est régulièrement envoyé à toutes les parties prenantes pour leur tenir informer de la destination et les impacts de leurs contributions.
-
-                    </div>
+                       Le rapport des activités est régulièrement envoyé à toutes les parties prenantes pour leur tenir informer de la destination et les impacts de leurs contributions.
+                    </p>
+                </div>
             </div>
             <div class="col-md-6 d-flex align-items-center">
                 <div class="row">
@@ -133,11 +131,13 @@
                     <a href="/storage/projets/{{$projet->image}}" class="img image-popup d-flex align-items-center" style="background-image: url(/storage/projets/{{$projet->image}});">
                         <div class="icon d-flex align-items-center justify-content-center mb-5"><span class="fa fa-plus"></span></div>
                     </a>
-                    <div class="text">
-                        <span class="subheading">{{$projet->type->nom}}</span>
-                        <h3>{{$projet->titre}}</h3>
-                        <p><span class="fa fa-map-marker mr-1"></span> {{$projet->localite}}</p>
-                    </div>
+                    <a href="{{ route('projet-detail', ['projet'=>$projet->titre]) }}">
+                        <div class="text">
+                            <span class="subheading">{{$projet->type->nom}}</span>
+                            <h3>{{str_limit($projet->titre,25)}}</h3>
+                            <p><span class="fa fa-map-marker mr-1"></span> {{$projet->localite}}</p>
+                        </div>
+                    </a>
                 </div>
             </div>
             @endforeach

@@ -35,6 +35,8 @@ Route::namespace('Frontend')->prefix('acdev')->group(function(){
     Route::get('/gallery','FrontendController@galery')->name('gallery');
 
     Route::get('/témoignages','FrontendController@temoignages')->name('temoignage');
+
+    Route::get('/temoignages/{slug}','FrontendController@show_temoignage')->name('temoignage.show');
 });
 
 Route::namespace('Backend')->prefix('acdev-admin')->group(function(){

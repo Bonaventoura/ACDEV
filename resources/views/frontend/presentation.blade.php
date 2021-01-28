@@ -1,7 +1,7 @@
 @extends('frontend.layouts.front')
 
 @section('titre')
-    Présentation d'ACDEV
+    Présentation
 @endsection
 
 @section('page')
@@ -20,9 +20,16 @@
         <div class="row no-gutters">
             <div class="col-md-6 py-5 bg-secondary aside-stretch">
                 <div class="heading-section heading-section-white p-4 pl-md-0 py-md-5 pr-md-5">
-                    <span class="subheading">Wilcon A Construction Company</span>
-                    <h2 class="mb-4">Best Provider for Industrial Services</h2>
-                    <h4>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</h4>
+                    <span class="subheading"></span>
+                    <h2 class="mb-4">ACDEV, Une action solidaire contre la pauvreté</h2>
+                    <h4>
+                        <p>
+                            <strong>Action Charité et Développement</strong> est une association à caractère philanthropique,
+                            apolitique et à but non lucratif créée au Togo et régie par la loi de 1901.
+                            Les membre d’ACDev mettent en commun leurs efforts pour la réalisation des actions
+                            qui visent le bien-être des populations les plus défavorisées en s’occupant activement des projets sociaux.
+                        </p>
+                    </h4>
                     <p></p>
                 </div>
             </div>
@@ -37,28 +44,20 @@
         <div class="row">
             <div class="col-md-6 d-flex align-items-stretch">
                 <div class="about-wrap img w-100" style="background-image: url({{asset('images/about.jpg')}});">
-                    <div class="icon d-flex align-items-center justify-content-center">
-                        <img src="{{ asset('images/logo_acdev.png') }}" width="70" alt="">
-                    </div>
+                    
                 </div>
             </div>
             <div class="col-md-6 py-5 pl-md-5">
                 <div class="row justify-content-center mb-4 pt-md-4">
                     <div class="col-md-12 heading-section ftco-animate fadeInUp ftco-animated">
                         <span class="subheading"></span>
-                        <h2 class="mb-4">A PROPOS D'ACDEV</h2>
+                        <h2 class="mb-4">MISSION</h2>
 
-                        <p>
-                            <strong>Action Charité et Développement</strong> est une association à caractère philanthropique,
-                            apolitique et à but non lucratif créée au Togo et régie par la loi de 1901.
-                            Les membre d’ACDev mettent en commun leurs efforts pour la réalisation des actions
-                            qui visent le bien-être des populations les plus défavorisées en s’occupant activement des projets sociaux.
-                        </p>
-                        <p> <strong>MISSION :</strong>
+                    
+                       <!-- <p> <strong>MISSION :</strong>-->
                            L’association ACDev s’engage à contribuer au développement social, économique et culturel des communautés les plus démunies.
-                            ACDev vient en appui aux couches socialement défavorisées surtout celles à la base qui cherchent à s’organiser afin de trouver de solutions aux problèmes qui freinent leur développement.</p>
-
-
+                            ACDev vient en appui aux couches socialement défavorisées surtout celles à la base qui cherchent à s’organiser afin de trouver de solutions aux problèmes qui freinent leur développement.
+                        </p>
                     </div>
                 </div>
             </div>

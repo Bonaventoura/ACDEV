@@ -54,7 +54,7 @@
 
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
-
+                            <textarea name="text" id="text"  class="form-control"></textarea>
                             <div class="form-group m-r-5">
                                 <button type="submit" id="submit" class="btn btn-primary m-t-15 waves-effect">Enregistrer</button>
                             </div>

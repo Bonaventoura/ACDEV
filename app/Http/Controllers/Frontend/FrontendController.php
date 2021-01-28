@@ -122,5 +122,19 @@ class FrontendController extends Controller
         ]);
     }
 
+    public function show_temoignage($slug)
+    {
+        $temoignage = Temoignage::where('slug','=',$slug)->first();
+
+        if ($temoignage) {
+            return view('frontend.temoignage.show')->with([
+                'temoignage'=>$temoignage
+            ]);
+        } else {
+            return redirect()->back();
+        }
+
+    }
+
 
 }

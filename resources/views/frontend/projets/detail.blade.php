@@ -14,7 +14,7 @@
             <div class="row d-flex">
                 <div class="col-lg-12">
                     <div class="card shadow-lg">
-                        <div class="card-header bg-success text-white">{{$projet->titre}}</div>
+                        <div class="card-header text-white" style="background-color: #0c64f2">{{$projet->titre}}</div>
                         <div class="card-body">
                             <center>
                                 <a href="/storage/projets/{{$projet->image}}" data-lightbox="example-set">
@@ -26,7 +26,7 @@
                 </div>
                 <div class="col-lg-12 mt-5">
                     <div class="card shadow-lg">
-                        <div class="card-header bg-success text-white">
+                        <div class="card-header text-white" style="background-color: #0c64f2" >
                             Détails du projet: {{$projet->titre}}
                         </div>
                         <div class="card-body">
@@ -93,8 +93,8 @@
                     </div>
                 </div>
 
-                <div class="col-lg-12 mt-5 mb-5">
-                    <h4 class="text-center bg-success text-white">Gallerie d'image</h4>
+                <div class="col-lg-12 mt-5 mb-5" style="background-color: #0c64f2">
+                    <h4 class="text-center text-white">Gallerie d'image</h4>
                     <div class="row ">
                         @foreach ($galleries as $gallery)
                         <div class="gallery">

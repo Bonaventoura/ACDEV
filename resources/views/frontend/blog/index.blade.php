@@ -1,5 +1,13 @@
 @extends('frontend.layouts.front')
 
+@section('titre')
+Actualités
+@endsection
+
+@section('page')
+Actualités
+@endsection
+
 @section('content')
 <section class="ftco-section bg-light">
     <div class="container">

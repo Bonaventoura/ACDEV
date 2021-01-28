@@ -62,7 +62,7 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid bg-primary">
+    <div class="container-fluid bg-secondary">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 aside-stretch py-3">
@@ -73,5 +73,6 @@
                 </div>
             </div>
         </div>
+   
     </div>
 </footer>

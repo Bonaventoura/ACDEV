@@ -18,7 +18,7 @@
             @foreach ($temoignages as $post)
             <div class="col-lg-4 ftco-animate fadeInUp ftco-animated">
                 <div class="blog-entry">
-                    <a href="{{ route('blog.single', ['slug'=>$post->slug]) }}" class="block-20" style="background-image: url('/storage/temoignages/{{$post->image}}');"></a>
+                    <a href="{{ route('temoignage.show', ['slug'=>$post->slug]) }}" class="block-20" style="background-image: url('/storage/temoignages/{{$post->image}}');"></a>
                     <div class="text d-block">
                         <div class="meta">
                             <p>

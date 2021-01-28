@@ -10,7 +10,7 @@
 @section('content')
 <section class="ftco-section">
     <div class="container">
-      <div class="row">
+        <div class="row">
 
             <div class="col-lg-8 ftco-animate fadeInUp ftco-animated">
 
@@ -70,6 +70,6 @@
             </div>
 
         </div>
-  </div>
-  </section>
+    </div>
+</section>
 @endsection
